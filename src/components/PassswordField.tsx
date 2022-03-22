@@ -39,7 +39,6 @@ export const PasswordField = React.forwardRef<HTMLInputElement, InputProps>(
           </InputRightElement>
           <Input
             id="password"
-            ref={mergeRef}
             name="password"
             type={isOpen ? 'text' : 'password'}
             autoComplete="current-password"

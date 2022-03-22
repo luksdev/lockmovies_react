@@ -9,6 +9,7 @@ import {
   Heading,
   HStack,
   Input,
+  Link,
   Stack,
   Text,
   useBreakpointValue,
@@ -34,9 +35,11 @@ export const Login = () => (
           </Heading>
           <HStack spacing="1" justify="center">
             <Text color="muted">Novo por aqui?</Text>
-            <Button variant="link" colorScheme="yellow">
-              Assine agora
-            </Button>
+            <Link href="/price">
+              <Button variant="link" colorScheme="yellow">
+                Assine agora
+              </Button>
+            </Link>
           </HStack>
         </Stack>
       </Stack>

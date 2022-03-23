@@ -26,8 +26,7 @@ export default function ContentIndex() {
         bg="rgba(30,0,0,0.1)"
         _before={{
           content: '""',
-          bgImage:
-            'url(https://i.pinimg.com/originals/2f/88/a9/2f88a9427474343f7275e3b8f6fcc2e1.jpg)',
+          bgImage: "url('/background.jpg')",
           bgSize: 'cover',
           pos: 'absolute',
           top: 0,

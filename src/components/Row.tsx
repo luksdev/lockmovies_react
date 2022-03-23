@@ -1,6 +1,6 @@
+import { type } from 'os';
 import { useEffect, useState } from 'react';
 import instance from '../lib/axios';
-import { Image } from '@chakra-ui/react';
 
 export default function Row({ title, fetchUrl, isLargeRow = false }) {
   const [movies, setMovies] = useState([]);
@@ -21,6 +21,7 @@ export default function Row({ title, fetchUrl, isLargeRow = false }) {
         {movies.map((movie, index) => {
           return (
             <div
+              key={index}
               className={`${
                 isLargeRow
                   ? 'flex-none h-auto py-3'
@@ -28,7 +29,8 @@ export default function Row({ title, fetchUrl, isLargeRow = false }) {
               }`}
             >
               {movie?.poster_path != null ? (
-                <Image
+                <img
+                  loading="lazy"
                   className={
                     isLargeRow
                       ? 'h-48 md:w-48 md:h-72 object-contain cursor-pointer hover:scale-110 transition transform duration-150 ease-out rounded-lg'

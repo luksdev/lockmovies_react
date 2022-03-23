@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import {
   Box,
   Flex,
@@ -16,8 +16,6 @@ import {
   useColorModeValue,
   useColorMode,
   Stack,
-  Heading,
-  AlertTitle,
   Text,
   Center,
 } from '@chakra-ui/react';
@@ -44,15 +42,29 @@ export default function Header() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const opacityHeader = () => {
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', function () {
+      if (this.window.scrollY > 150) {
+        header?.classList.add(
+          'transition',
+          'bg-black',
+          'opacity-90',
+          'duration-1000'
+        );
+      } else {
+        header?.classList.remove('bg-black');
+      }
+    });
+  };
+
+  useEffect(() => {
+    opacityHeader();
+  }, []);
+
   return (
     <>
-      <Box
-        // bg={useColorModeValue('gray.100', 'gray.900')}
-        w="full"
-        px={4}
-        position="absolute"
-        zIndex={10}
-      >
+      <Box w="full" px={4} top="0px" position="fixed" zIndex={10} id="header">
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}

@@ -4,7 +4,7 @@ import instance from "../lib/axios";
 import requests from "../lib/requests";
 
 export default function Banner() {
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState<any>([]);
 
   useEffect(() => {
     async function fetchData() {

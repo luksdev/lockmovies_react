@@ -1,4 +1,4 @@
-import Head from 'next/head';
+/* eslint-disable react/no-unescaped-entities */
 import {
   Box,
   Heading,
@@ -10,72 +10,72 @@ import {
   useColorModeValue,
   createIcon,
   Link,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
 export default function ContentIndex() {
   return (
     <>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-
       <Box
         bg="rgba(30,0,0,0.1)"
         _before={{
           content: '""',
           bgImage: "url('/background.jpg')",
-          bgSize: 'cover',
-          pos: 'absolute',
+          bgSize: "cover",
+          pos: "absolute",
           top: 0,
           right: 0,
           left: 0,
           bottom: 0,
           opacity: 0.1,
+          height: "100vh",
         }}
-        h={'full'}
+        h={"full"}
       >
-        <Container maxW={'60%'} h={'100vh'}>
+        <Container
+          maxW={"60%"}
+          h={"100vh"}
+          display="flex"
+          alignItems={"center"}
+          justifyContent="center"
+        >
           <Stack
             as={Box}
-            textAlign={'center'}
+            textAlign={"center"}
             spacing={{ base: 8, md: 14 }}
-            py={{ base: 20, md: 36 }}
+            // pt={{ base: 20, md: "7rem" }}
           >
             <Heading
               fontWeight={600}
-              fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
-              lineHeight={'110%'}
+              fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
+              lineHeight={"110%"}
             >
               Assista os melhores filmes
               <br />
-              <Text as={'span'} color={'yellow.400'}>
+              <Text as={"span"} color={"yellow.400"}>
                 com máxima qualidade
               </Text>
             </Heading>
-            <Text color={'yellow.100'}>
+            <Text color={"yellow.100"}>
               Simply dummy text of the printing and typesetting industry. Lorem
               Ipsum has been the industry's standard dummy text ever since the
               1500s, when an unknown printer took a galley of type and scrambled
               it to make a type specimen book.
             </Text>
             <Stack
-              direction={'column'}
+              direction={"column"}
               spacing={3}
-              align={'center'}
-              alignSelf={'center'}
-              position={'relative'}
+              align={"center"}
+              alignSelf={"center"}
+              position={"relative"}
             >
               <Link href="/login">
                 <Button
-                  colorScheme={'yellow'}
-                  bg={'yellow.400'}
-                  rounded={'full'}
+                  colorScheme={"yellow"}
+                  bg={"yellow.400"}
+                  rounded={"full"}
                   px={6}
                   _hover={{
-                    bg: 'yellow.500',
+                    bg: "yellow.500",
                   }}
                 >
                   Assistir agora
@@ -85,19 +85,19 @@ export default function ContentIndex() {
               <Box>
                 <Icon
                   as={Arrow}
-                  color={useColorModeValue('gray.800', 'gray.300')}
+                  color={useColorModeValue("gray.800", "gray.300")}
                   w={71}
-                  position={'absolute'}
+                  position={"absolute"}
                   right={-71}
-                  top={'10px'}
+                  top={"10px"}
                 />
                 <Text
-                  fontSize={'lg'}
-                  fontFamily={'Caveat'}
-                  position={'absolute'}
-                  right={'-125px'}
-                  top={'-25px'}
-                  transform={'rotate(10deg)'}
+                  fontSize={"lg"}
+                  fontFamily={"Caveat"}
+                  position={"absolute"}
+                  right={"-125px"}
+                  top={"-25px"}
+                  transform={"rotate(10deg)"}
                 >
                   Comece por apenas 5,99R$/mês
                 </Text>
@@ -111,8 +111,8 @@ export default function ContentIndex() {
 }
 
 const Arrow = createIcon({
-  displayName: 'Arrow',
-  viewBox: '0 0 72 24',
+  displayName: "Arrow",
+  viewBox: "0 0 72 24",
   path: (
     <path
       fillRule="evenodd"

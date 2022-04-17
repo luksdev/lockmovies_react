@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 import {
   Box,
   Stack,
@@ -11,8 +11,8 @@ import {
   ListItem,
   ListIcon,
   Button,
-} from '@chakra-ui/react';
-import { FaCheckCircle } from 'react-icons/fa';
+} from "@chakra-ui/react";
+import { FaCheckCircle } from "react-icons/fa";
 
 function PriceWrapper({ children }: { children: ReactNode }) {
   return (
@@ -20,9 +20,9 @@ function PriceWrapper({ children }: { children: ReactNode }) {
       mb={4}
       shadow="base"
       borderWidth="1px"
-      alignSelf={{ base: 'center', lg: 'flex-start' }}
-      borderColor={useColorModeValue('gray.200', 'gray.500')}
-      borderRadius={'xl'}
+      alignSelf={{ base: "center", lg: "flex-start" }}
+      borderColor={useColorModeValue("gray.200", "gray.500")}
+      borderRadius={"xl"}
     >
       {children}
     </Box>
@@ -32,18 +32,18 @@ function PriceWrapper({ children }: { children: ReactNode }) {
 export default function TierPricing() {
   return (
     <Box
-      h={'100vh'}
-      display={'flex'}
+      h={"100vh"}
+      display={"flex"}
       alignItems="center"
-      justifyContent={'center'}
+      justifyContent={"center"}
       flexDirection="column"
       bg="rgba(10,0,0,0.1)"
       _before={{
         content: '""',
         bgImage:
-          'url(https://i.pinimg.com/originals/2f/88/a9/2f88a9427474343f7275e3b8f6fcc2e1.jpg)',
-        bgSize: 'cover',
-        pos: 'absolute',
+          "url(https://i.pinimg.com/originals/2f/88/a9/2f88a9427474343f7275e3b8f6fcc2e1.jpg)",
+        bgSize: "cover",
+        pos: "absolute",
         top: 0,
         right: 0,
         left: 0,
@@ -51,17 +51,17 @@ export default function TierPricing() {
         opacity: 0.06,
       }}
     >
-      <VStack spacing={2} textAlign="center">
-        <Heading as="h1" fontSize="4xl" color={'yellow.400'}>
+      <Box textAlign="center">
+        <Heading as="h1" fontSize="4xl" color={"yellow.400"}>
           Escolha o plano que melhor atende suas necessidades
         </Heading>
-        <Text fontSize="lg" color={'yellow.500'}>
+        <Text fontSize="lg" color={"yellow.500"}>
           Comece com 7 dias de teste gratuito. Não é necessário cartão de
           crédito. Cancele a qualquer momento.
         </Text>
-      </VStack>
+      </Box>
       <Stack
-        direction={{ base: 'column', md: 'row' }}
+        direction={{ base: "column", md: "row" }}
         textAlign="center"
         justify="center"
         spacing={{ base: 4, lg: 10 }}
@@ -73,21 +73,21 @@ export default function TierPricing() {
               Lock Basic
             </Text>
             <HStack justifyContent="center">
-              <Text fontSize="3xl" fontWeight="600">
+              <Text fontSize="1xl" fontWeight="600">
                 R$
               </Text>
-              <Text fontSize="5xl" fontWeight="900">
+              <Text fontSize="3xl" fontWeight="900">
                 5,99
               </Text>
-              <Text fontSize="3xl" color="gray.500">
+              <Text fontSize="1xl" color="gray.500">
                 /mês
               </Text>
             </HStack>
           </Box>
           <VStack
-            bg={useColorModeValue('gray.50', 'gray.700')}
+            bg={useColorModeValue("gray.50", "gray.700")}
             py={4}
-            borderBottomRadius={'xl'}
+            borderBottomRadius={"xl"}
           >
             <List spacing={3} textAlign="start" px={12}>
               <ListItem>
@@ -122,14 +122,14 @@ export default function TierPricing() {
               position="absolute"
               top="-16px"
               left="50%"
-              style={{ transform: 'translate(-50%)' }}
+              style={{ transform: "translate(-50%)" }}
             >
               <Text
                 textTransform="uppercase"
-                bg={useColorModeValue('yellow.300', 'yellow.700')}
+                bg={useColorModeValue("yellow.300", "yellow.700")}
                 px={3}
                 py={1}
-                color={useColorModeValue('gray.900', 'gray.300')}
+                color={useColorModeValue("gray.900", "gray.300")}
                 fontSize="sm"
                 fontWeight="600"
                 rounded="xl"
@@ -138,25 +138,25 @@ export default function TierPricing() {
               </Text>
             </Box>
             <Box py={4} px={12}>
-              <Text fontWeight="500" fontSize="3xl">
+              <Text fontWeight="500" fontSize="2xl">
                 Lock Standard
               </Text>
               <HStack justifyContent="center">
-                <Text fontSize="3xl" fontWeight="600">
+                <Text fontSize="1xl" fontWeight="600">
                   R$
                 </Text>
-                <Text fontSize="5xl" fontWeight="900">
+                <Text fontSize="3xl" fontWeight="900">
                   19,99
                 </Text>
-                <Text fontSize="3xl" color="gray.500">
+                <Text fontSize="1xl" color="gray.500">
                   /mês
                 </Text>
               </HStack>
             </Box>
             <VStack
-              bg={useColorModeValue('gray.50', 'gray.700')}
+              bg={useColorModeValue("gray.50", "gray.700")}
               py={4}
-              borderBottomRadius={'xl'}
+              borderBottomRadius={"xl"}
             >
               <List spacing={3} textAlign="start" px={12}>
                 <ListItem>
@@ -207,9 +207,9 @@ export default function TierPricing() {
             </HStack>
           </Box>
           <VStack
-            bg={useColorModeValue('gray.50', 'gray.700')}
+            bg={useColorModeValue("gray.50", "gray.700")}
             py={4}
-            borderBottomRadius={'xl'}
+            borderBottomRadius={"xl"}
           >
             <List spacing={3} textAlign="start" px={12}>
               <ListItem>

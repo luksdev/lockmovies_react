@@ -1,6 +1,7 @@
-import { type } from 'os';
-import { useEffect, useState } from 'react';
-import instance from '../lib/axios';
+import Image from "next/image";
+import { type } from "os";
+import { useEffect, useState } from "react";
+import instance from "../lib/axios";
 
 export default function Row({ title, fetchUrl, isLargeRow = false }) {
   const [movies, setMovies] = useState([]);
@@ -24,29 +25,46 @@ export default function Row({ title, fetchUrl, isLargeRow = false }) {
               key={index}
               className={`${
                 isLargeRow
-                  ? 'flex-none h-auto py-3'
-                  : 'flex-none group w-80 h-48 hover:scale-110 duration-200 transition transform ease-out cursor-pointer hover:z-20'
+                  ? "flex-none h-auto py-3"
+                  : "flex-none group w-80 h-48 hover:scale-110 duration-200 transition transform ease-out cursor-pointer hover:z-20"
               }`}
             >
               {movie?.poster_path != null ? (
-                <img
-                  loading="lazy"
-                  className={
-                    isLargeRow
-                      ? 'h-48 md:w-48 md:h-72 object-contain cursor-pointer hover:scale-110 transition transform duration-150 ease-out rounded-lg'
-                      : 'absolute w-full h-full rounded-md hover:brightness-50 z-0 object-cover'
-                  }
-                  src={`https://image.tmdb.org/t/p/original${
-                    isLargeRow ? movie.poster_path : movie.backdrop_path
-                  }`}
-                  alt={movie?.name}
-                />
+                <>
+                  <Image
+                    alt={movie?.name ? movie.name : movie.title}
+                    loading="lazy"
+                    width={isLargeRow ? 200 : 3000}
+                    height={isLargeRow ? 300 : 1950}
+                    className={
+                      isLargeRow
+                        ? "h-48 md:w-48 md:h-72 object-contain cursor-pointer hover:scale-110 transition transform duration-150 ease-out rounded-lg"
+                        : "absolute w-full h-full rounded-md hover:brightness-50 z-0 object-cover"
+                    }
+                    layout={isLargeRow ? "fixed" : "responsive"}
+                    src={`https://image.tmdb.org/t/p/original${
+                      isLargeRow ? movie.poster_path : movie.backdrop_path
+                    }`}
+                  />
+                  {/* <img
+                    loading="lazy"
+                    className={
+                      isLargeRow
+                        ? "h-48 md:w-48 md:h-72 object-contain cursor-pointer hover:scale-110 transition transform duration-150 ease-out rounded-lg"
+                        : "absolute w-full h-full rounded-md hover:brightness-50 z-0 object-cover"
+                    }
+                    src={`https://image.tmdb.org/t/p/original${
+                      isLargeRow ? movie.poster_path : movie.backdrop_path
+                    }`}
+                    alt={movie?.name}
+                  /> */}
+                </>
               ) : undefined}
               <h2
                 className={`${
                   isLargeRow
-                    ? 'hidden'
-                    : 'z-50 absolute bottom-5 text-center w-full text-white text-lg font-medium hidden group-hover:block cursor-pointer px-3'
+                    ? "hidden"
+                    : "z-50 absolute bottom-5 text-center w-full text-white text-lg font-medium hidden group-hover:block cursor-pointer px-3"
                 }`}
               >
                 {movie?.title || movie.name || movie.original_name}

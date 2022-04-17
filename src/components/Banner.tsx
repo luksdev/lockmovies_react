@@ -1,7 +1,7 @@
-import { Button, ButtonGroup, Text } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
-import instance from '../lib/axios';
-import requests from '../lib/requests';
+import { Button, ButtonGroup, Text } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import instance from "../lib/axios";
+import requests from "../lib/requests";
 
 export default function Banner() {
   const [movie, setMovie] = useState([]);
@@ -25,13 +25,13 @@ export default function Banner() {
     <header
       className="h-[540px] relative z-0 object-contain text-white"
       style={{
-        backgroundSize: 'cover',
+        backgroundSize: "cover",
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
-        backgroundPosition: 'center center',
+        backgroundPosition: "center center",
       }}
     >
       <div className="ml-[30px] pt-[140px] h-[190px] absolute">
-        <Text fontWeight={'bold'} fontSize="5xl" pb={5}>
+        <Text fontWeight={"bold"} fontSize="5xl" pb={5}>
           {movie?.title || movie?.name || movie?.original_name}
         </Text>
         <div>
@@ -41,9 +41,9 @@ export default function Banner() {
           </ButtonGroup>
         </div>
         <Text
-          maxW={'600px'}
+          maxW={"600px"}
           pt={5}
-          textOverflow={'ellipsis'}
+          textOverflow={"ellipsis"}
           overflowWrap="break-word"
           wordBreak="break-word"
         >

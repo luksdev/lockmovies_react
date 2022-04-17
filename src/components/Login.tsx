@@ -14,23 +14,25 @@ import {
   Text,
   useBreakpointValue,
   useColorModeValue,
-} from '@chakra-ui/react';
-import * as React from 'react';
-import { PasswordField } from './PassswordField';
+} from "@chakra-ui/react";
+import * as React from "react";
+import { PasswordField } from "./PassswordField";
 
 export const Login = () => (
   <Container
     maxW="lg"
-    py={{ base: '12', md: '14' }}
-    px={{ base: '0', sm: '8' }}
+    display={"flex"}
+    height="100vh"
+    alignItems={"center"}
+    justifyContent={"center"}
   >
     <Stack spacing="2">
       <Stack spacing="3">
-        <Heading textAlign={'center'} color={'yellow.400'}>
+        <Heading textAlign={"center"} color={"yellow.400"}>
           LockMovies
         </Heading>
-        <Stack spacing={{ base: '2', md: '3' }} textAlign="center">
-          <Heading size={useBreakpointValue({ base: 'xs', md: 'sm' })}>
+        <Stack spacing={{ base: "2", md: "3" }} textAlign="center">
+          <Heading size={useBreakpointValue({ base: "xs", md: "sm" })}>
             Acesse a sua conta
           </Heading>
           <HStack spacing="1" justify="center">
@@ -44,11 +46,11 @@ export const Login = () => (
         </Stack>
       </Stack>
       <Box
-        py={{ base: '0', sm: '8' }}
-        px={{ base: '4', sm: '10' }}
-        bg={useBreakpointValue({ base: 'transparent', sm: 'bg-surface' })}
-        boxShadow={{ base: '2xl', sm: useColorModeValue('md', 'md-dark') }}
-        borderRadius={{ base: 'none', sm: 'xl' }}
+        py={{ base: "8", sm: "8" }}
+        px={{ base: "5", sm: "10" }}
+        bg={useBreakpointValue({ base: "transparent", sm: "bg-surface" })}
+        boxShadow={{ base: "2xl", sm: useColorModeValue("md", "md-dark") }}
+        borderRadius={{ base: "none", sm: "xl" }}
       >
         <Stack spacing="6">
           <Stack spacing="5">
@@ -65,7 +67,7 @@ export const Login = () => (
             </Button>
           </HStack>
           <Stack spacing="6">
-            <Button variant="solid" colorScheme={'yellow'}>
+            <Button variant="solid" colorScheme={"yellow"}>
               Acessar
             </Button>
           </Stack>

@@ -3,8 +3,8 @@ import { type } from "os";
 import { useEffect, useState } from "react";
 import instance from "../lib/axios";
 
-export default function Row({ title, fetchUrl, isLargeRow = false }) {
-  const [movies, setMovies] = useState([]);
+export default function Row({ title, fetchUrl, isLargeRow = false }: any) {
+  const [movies, setMovies] = useState<any[]>([]);
 
   useEffect(() => {
     async function fetchData() {

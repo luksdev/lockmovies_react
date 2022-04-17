@@ -31,7 +31,7 @@ export default function Banner() {
       }}
     >
       <div className="ml-[30px] pt-[140px] h-[190px] absolute">
-        <Text fontWeight={"bold"} fontSize="5xl" pb={5}>
+        <Text fontWeight={"bold"} fontSize={{ base: "2xl", md: "5xl" }} pb={5}>
           {movie?.title || movie?.name || movie?.original_name}
         </Text>
         <div>
@@ -41,8 +41,10 @@ export default function Banner() {
           </ButtonGroup>
         </div>
         <Text
-          maxW={"600px"}
+          noOfLines={5}
+          w={350}
           pt={5}
+          pr={2}
           textOverflow={"ellipsis"}
           overflowWrap="break-word"
           wordBreak="break-word"

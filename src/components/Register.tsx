@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {
   Flex,
   Box,
@@ -15,16 +16,52 @@ import {
 } from "@chakra-ui/react";
 import InputMask from "react-input-mask";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import { useRouter } from "next/router";
+import { isConstValueNode } from "graphql";
 
 export const Register = () => {
   const { register, handleSubmit, errors }: any = useForm();
-  const { signUp } = useContext<any>(AuthContext);
+  const { signUp, isAuthenticated } = useContext<any>(AuthContext);
+  const [planNum, setPlanNum] = useState(1); // 1 = basic, 2 = premium, 3 = produtor
+
+  const router = useRouter();
+
+  const planDisplay = (planIndentify: number) => {
+    switch (planIndentify) {
+      case 1:
+        return "Basic";
+      case 2:
+        return "Premium";
+      case 3:
+        return "Produtor";
+      default:
+        return "Basic";
+    }
+  };
 
   const handleSignUp = async (data: any) => {
     await signUp(data);
   };
+
+  useEffect(() => {
+    const { plan }: any = router.query;
+    switch (plan) {
+      case "1":
+        setPlanNum(1);
+        break;
+      case "2":
+        setPlanNum(2);
+        break;
+      case "3":
+        setPlanNum(3);
+        break;
+      default:
+        setPlanNum(1);
+        break;
+    }
+  }, [planDisplay]);
 
   return (
     <Flex
@@ -50,6 +87,9 @@ export const Register = () => {
           p={8}
         >
           <Stack spacing={4}>
+            <Text fontSize={"2xl"} fontWeight="semibold">
+              Plano: {planDisplay(planNum)}
+            </Text>
             <form onSubmit={handleSubmit(handleSignUp)}>
               <HStack>
                 <Box>
@@ -65,7 +105,7 @@ export const Register = () => {
                 </Box>
                 <Box>
                   <FormControl id="birth_date" isRequired>
-                    <FormLabel>Data de nascimento</FormLabel>
+                    <FormLabel>Nascimento</FormLabel>
                     <Input
                       type="date"
                       {...register("birth_date")}

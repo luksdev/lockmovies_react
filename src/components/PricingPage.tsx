@@ -12,9 +12,12 @@ import {
   Button,
   Flex,
 } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import { FaCheckCircle } from "react-icons/fa";
 
 export default function TierPricing() {
+  const router = useRouter();
+
   return (
     <>
       {/* Header */}
@@ -129,9 +132,15 @@ export default function TierPricing() {
             </Text>
           </Box>
 
-          <Button mt={4} colorScheme="green" variant="solid">
-            {" "}
-            Comprar{" "}
+          <Button
+            mt={4}
+            onClick={() =>
+              router.push({ pathname: "/register", query: { plan: 1 } })
+            }
+            colorScheme="green"
+            variant="solid"
+          >
+            Comprar
           </Button>
         </Box>
 
@@ -199,9 +208,15 @@ export default function TierPricing() {
             </Text>
           </Box>
 
-          <Button mt={4} colorScheme="green" variant="solid">
-            {" "}
-            Comprar{" "}
+          <Button
+            mt={4}
+            onClick={() =>
+              router.push({ pathname: "/register", query: { plan: 2 } })
+            }
+            colorScheme="green"
+            variant="solid"
+          >
+            Comprar
           </Button>
         </Box>
 
@@ -269,9 +284,15 @@ export default function TierPricing() {
             </Text>
           </Box>
 
-          <Button mt={4} colorScheme="green" variant="solid">
-            {" "}
-            Comprar{" "}
+          <Button
+            mt={4}
+            onClick={() =>
+              router.push({ pathname: "/register", query: { plan: 3 } })
+            }
+            colorScheme="green"
+            variant="solid"
+          >
+            Comprar
           </Button>
         </Box>
       </Box>

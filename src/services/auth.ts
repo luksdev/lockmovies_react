@@ -1,25 +1,28 @@
 import axios from "axios";
 
-export async function signInResquest(data: any) {
-  await axios.post(
-    "https://9947ccq2oj.execute-api.us-east-1.amazonaws.com/login_users",
-    {
-      withCredentials: false,
-      params: {
-        data,
-      },
-    }
-  );
+type Props = {
+  email: string,
+  password: string
+}
+
+export async function signInResquest(data: Props) {
+  const response = await axios.post("https://9947ccq2oj.execute-api.us-east-1.amazonaws.com/login_users", { email: data.email, password: data.password });
+
+  console.log(response)
 }
 
 export async function signUpResquest(data: any) {
+  console.log(data)
+
   await axios.post(
     "https://9947ccq2oj.execute-api.us-east-1.amazonaws.com/register_users",
     {
-      withCredentials: false,
-      params: {
-        data,
-      },
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      birth_date: data.birth_date,
+      productor: data.productor,
+      plan_id: "1"
     }
   );
 }

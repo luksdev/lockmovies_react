@@ -21,16 +21,16 @@ export const AuthContext = createContext({});
 export function AuthProvider({ children }: any) {
   let isAuthenticated = false;
 
-  async function signIn({ email, password }: SignInData) {
-    const response: any = await signInResquest({ email, password });
-
-    if (response.status === 200) {
-      console.log(response.data);
+  function signIn({ email, password }: SignInData) {
+    signInResquest({ email, password })
+    .then(response => {
       isAuthenticated = true;
       Router.push("/home");
-    } else {
-      Router.push("/");
-    }
+    })
+    .catch(error => {
+      console.log(error)
+      Router.push("/404")
+    })
   }
 
   async function signUp({

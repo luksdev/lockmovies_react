@@ -1,10 +1,15 @@
 import { Button, ButtonGroup, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import instance from "../lib/axios";
 import requests from "../lib/requests";
+import ModalMovie from "./ModalMovie";
+import { putFavoritesAtAWS } from "../services/Favorites";
+import { AuthContext } from "../contexts/AuthContext";
+import Router from "next/router";
 
 export default function Banner() {
   const [movie, setMovie] = useState<any>([]);
+  const { user } = useContext<any>(AuthContext);
 
   useEffect(() => {
     async function fetchData() {
@@ -18,6 +23,23 @@ export default function Banner() {
     }
     fetchData();
   }, []);
+
+  const handlePutFavorites = () => {
+    const movieDataToFavorite = {
+      id: movie?.id,
+      title: movie?.title,
+      overview: movie?.overview,
+      poster_path: movie?.poster_path,
+    }
+
+    putFavoritesAtAWS(user, movieDataToFavorite)
+    .then(() => {
+      setInterval(() => {
+        Router.reload();
+      }
+      , 1000);
+    })
+  };
 
   console.log(movie);
 
@@ -36,8 +58,8 @@ export default function Banner() {
         </Text>
         <div>
           <ButtonGroup>
-            <Button>Assistir</Button>
-            <Button>Favoritar</Button>
+            <ModalMovie name={movie?.title} description={movie?.overview} />
+            <Button onClick={handlePutFavorites}>Favoritar</Button>
           </ButtonGroup>
         </div>
         <Text

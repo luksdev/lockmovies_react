@@ -4,7 +4,7 @@ import theme from "../src/lib/theme";
 
 export default function Document() {
   return (
-    <Html>
+    <Html style={{scrollBehavior:"smooth"}}>
       <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap"

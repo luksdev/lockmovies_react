@@ -1,4 +1,4 @@
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useContext, useEffect, useState } from "react";
 import {
   Box,
   Flex,
@@ -20,6 +20,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Links = ["Filmes", "Séries"];
 
@@ -41,6 +42,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 export default function Header() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { user } = useContext<any>(AuthContext)
 
   const opacityHeader = () => {
     const header = document.getElementById("header");
@@ -117,13 +119,15 @@ export default function Header() {
                 </Center>
                 <br />
                 <Center>
-                  <p>Username</p>
+                  <p>Lucas Eduardo</p>
                 </Center>
                 <br />
                 <MenuItem>Dados</MenuItem>
-                <MenuItem>Favoritos</MenuItem>
+                <Link href="#Favorites">
+                  <MenuItem>Favoritos</MenuItem>
+                </Link>
                 <MenuDivider />
-                <Link href="/">
+                <Link href="/" onClick={() => localStorage.clear()}>
                   <MenuItem>Sair</MenuItem>
                 </Link>
               </MenuList>

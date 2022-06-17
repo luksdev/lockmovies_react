@@ -42,7 +42,6 @@ export default function ContentIndex() {
             as={Box}
             textAlign={"center"}
             spacing={{ base: 8, md: 14 }}
-            // pt={{ base: 20, md: "7rem" }}
           >
             <Heading
               fontWeight={600}
@@ -56,10 +55,9 @@ export default function ContentIndex() {
               </Text>
             </Heading>
             <Text color={"yellow.100"}>
-              Simply dummy text of the printing and typesetting industry. Lorem
-              Ipsum has been the industry's standard dummy text ever since the
-              1500s, when an unknown printer took a galley of type and scrambled
-              it to make a type specimen book.
+              Revolucionamos a maneira como consumimos produtos culturais, ter
+              conteúdo sem necessidade de perder tempo baixando o material é a
+              receita de sucesso para o seu dia a dia.
             </Text>
             <Stack
               direction={"column"}

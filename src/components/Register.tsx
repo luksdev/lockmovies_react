@@ -133,13 +133,6 @@ export const Register = () => {
                 <FormLabel>Password</FormLabel>
                 <Input type={"password"} {...register("password")} />
               </FormControl>
-              <FormControl id="Productor" isRequired>
-                <FormLabel>Você é produtor?</FormLabel>
-                <Select {...register("productor")} defaultValue={false}>
-                  <option value={"true"}>Sim</option>
-                  <option value={"false"}>Não</option>
-                </Select>
-              </FormControl>
               <Stack spacing={10} pt={2}>
                 <Button
                   loadingText="Submitting"

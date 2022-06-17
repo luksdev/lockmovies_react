@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import Router from "next/router";
 import { createContext } from "react";
 import { signInResquest, signUpResquest } from "../services/auth";
@@ -20,20 +21,37 @@ export const AuthContext = createContext({});
 
 export function AuthProvider({ children }: any) {
   let isAuthenticated = false;
-
+  const [user, setUser] = useState(null);
+  
+  const getItemToLocalStorageAndParse = (key: string) => {
+    const item = localStorage.getItem(key);
+    return item ? JSON.parse(item) : null;
+  };
+  
+  useEffect(() => {
+    if(localStorage.getItem("user")) {
+      isAuthenticated = true;
+      console.log("Usuário logado")
+      const user = getItemToLocalStorageAndParse("user");
+      setUser(user);
+    }
+  },[])
+  
   function signIn({ email, password }: SignInData) {
     signInResquest({ email, password })
-    .then(response => {
-      isAuthenticated = true;
+    .then((response) => {
+      const dataUser = response.scanResults[0];
+      localStorage.setItem("user", JSON.stringify(dataUser));
       Router.push("/home");
     })
-    .catch(error => {
-      console.log(error)
-      Router.push("/404")
-    })
+    .catch((error) => {
+      console.log(error);
+      Router.push("/404");
+    });
   }
-
-  async function signUp({
+  console.log(user)
+  
+  function signUp({
     email,
     birth_date,
     name,
@@ -41,24 +59,24 @@ export function AuthProvider({ children }: any) {
     phone,
     productor,
   }: SignUpData) {
-    const response: any = await signUpResquest({
+    signUpResquest({
       email,
       birth_date,
       name,
       password,
       phone,
       productor,
-    });
-
-    if (response.status === 200) {
-      console.log("Registrado com sucesso");
-    } else {
-      console.log("Erro ao registrar");
-    }
+    })
+      .then((response) => {
+        console.log("Acho que deu certo :P, ", response);
+      })
+      .catch((error) => {
+        console.log("erro novamente...");
+      });
   }
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, signIn, signUp }}>
+    <AuthContext.Provider value={{ isAuthenticated, signIn, signUp, user }}>
       {children}
     </AuthContext.Provider>
   );

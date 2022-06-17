@@ -40,6 +40,7 @@ export default function TierPricing() {
           cursor="pointer"
           transition={".08s"}
           _hover={{ color: "white" }}
+          onClick={() => router.push("/login")}
         >
           Retornar
         </Text>
@@ -86,7 +87,7 @@ export default function TierPricing() {
             <Box as="h3" color={"#292F36"}>
               Plano Básico
             </Box>
-            <Text fontWeight={"semibold"}>R$ 0,00</Text>
+            <Text fontWeight={"semibold"}>R$ 4,90</Text>
           </Flex>
 
           {/* Caracteristicas */}
@@ -99,7 +100,7 @@ export default function TierPricing() {
             >
               <FaCheckCircle />
               <Text pl={2} fontSize={20}>
-                <strong>1</strong> Filme por dia
+                <strong>Resolução</strong> HD
               </Text>
             </Text>
           </Box>
@@ -113,7 +114,7 @@ export default function TierPricing() {
             >
               <FaCheckCircle color="green.500" />
               <Text pl={2} fontSize={20}>
-                <strong>1</strong> Filme por dia
+                <strong>1</strong> Tela disponível
               </Text>
             </Text>
           </Box>
@@ -127,7 +128,7 @@ export default function TierPricing() {
             >
               <FaCheckCircle color="green.500" />
               <Text pl={2} fontSize={20}>
-                <strong>1</strong> Filme por dia
+                <strong>Celular e PC</strong>
               </Text>
             </Text>
           </Box>
@@ -160,9 +161,9 @@ export default function TierPricing() {
         >
           <Flex flexDir={"column"} alignItems={"center"} pb={10}>
             <Box as="h3" color={"#292F36"}>
-              Plano Básico
+              Plano Premium
             </Box>
-            <Text fontWeight={"semibold"}>R$ 0,00</Text>
+            <Text fontWeight={"semibold"}>R$ 8,90</Text>
           </Flex>
 
           {/* Caracteristicas */}
@@ -175,7 +176,7 @@ export default function TierPricing() {
             >
               <FaCheckCircle />
               <Text pl={2} fontSize={20}>
-                <strong>1</strong> Filme por dia
+                <strong>Resolução</strong> Full HD
               </Text>
             </Text>
           </Box>
@@ -189,7 +190,7 @@ export default function TierPricing() {
             >
               <FaCheckCircle color="green.500" />
               <Text pl={2} fontSize={20}>
-                <strong>1</strong> Filme por dia
+                <strong>3</strong> Telas disponíveis
               </Text>
             </Text>
           </Box>
@@ -203,7 +204,7 @@ export default function TierPricing() {
             >
               <FaCheckCircle color="green.500" />
               <Text pl={2} fontSize={20}>
-                <strong>1</strong> Filme por dia
+                <strong>Celular, PC, TV e Tablet</strong>
               </Text>
             </Text>
           </Box>
@@ -236,9 +237,9 @@ export default function TierPricing() {
         >
           <Flex flexDir={"column"} alignItems={"center"} pb={10}>
             <Box as="h3" color={"#292F36"}>
-              Plano Básico
+              Plano Produtor
             </Box>
-            <Text fontWeight={"semibold"}>R$ 0,00</Text>
+            <Text fontWeight={"semibold"}>R$ 13,90</Text>
           </Flex>
 
           {/* Caracteristicas */}
@@ -251,7 +252,7 @@ export default function TierPricing() {
             >
               <FaCheckCircle />
               <Text pl={2} fontSize={20}>
-                <strong>1</strong> Filme por dia
+                <strong>Resolução</strong> Full HD
               </Text>
             </Text>
           </Box>
@@ -265,7 +266,7 @@ export default function TierPricing() {
             >
               <FaCheckCircle color="green.500" />
               <Text pl={2} fontSize={20}>
-                <strong>1</strong> Filme por dia
+                <strong>4</strong> Telas disponíveis
               </Text>
             </Text>
           </Box>
@@ -279,7 +280,21 @@ export default function TierPricing() {
             >
               <FaCheckCircle color="green.500" />
               <Text pl={2} fontSize={20}>
-                <strong>1</strong> Filme por dia
+                <strong>Celular, Pc, TV e Tablet</strong>
+              </Text>
+            </Text>
+          </Box>
+
+          <Box px={10}>
+            <Text
+              fontSize="sm"
+              display="flex"
+              alignItems={"center"}
+              justifyContent={"center"}
+            >
+              <FaCheckCircle color="green.500" />
+              <Text pl={2} fontSize={20}>
+                Modo produtor
               </Text>
             </Text>
           </Box>
